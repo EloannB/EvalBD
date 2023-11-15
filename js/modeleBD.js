@@ -21,7 +21,7 @@ jQuery(document).ready(function ($) {
 	    auteur = auteurs.get(album.idAuteur);
 	    console.log(album.titre+" N°"+album.numero+" Série:"+serie.nom+" Auteur:"+auteur.nom);
 	});
-	*/
+	
 
 	/*
 	console.log("Liste des albums par série");
@@ -157,3 +157,4 @@ jQuery(document).ready(function ($) {
 	}
 
 });
+

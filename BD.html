@@ -1,19 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Les BD</title>
-</head>
+
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top mask-custom shadow-0">
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light fixed-top mask-custom shadow-0">
         <div class="container">
             <a class="navbar-brand" href="#!"><span style="color: rgb(209, 137, 155);">SEARCH</span><span
                     style="color: #fff;">BD</span></a>
@@ -25,30 +17,30 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#!">Offer</a>
+                        <a class="nav-link" href="#!">Par titre</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#!">Features</a>
+                        <a class="nav-link" href="#!">Par auteur</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#!">Portfolio</a>
+                        <a class="nav-link" href="#!">Par serie</a>
                     </li>
                    
                 </ul>
                 <ul class="navbar-nav d-flex flex-row">
                     <li class="nav-item me-3 me-lg-0">
-                        <a class="nav-link" href="#!">
-                            <i class="fas fa-shopping-cart"></i>
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-facebook"></i>
                         </a>
                     </li>
                     <li class="nav-item me-3 me-lg-0">
-                        <a class="nav-link" href="#!">
-                            <i class="fab fa-twitter"></i>
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-instagram"></i>
                         </a>
                     </li>
                     <li class="nav-item me-3 me-lg-0">
-                        <a class="nav-link" href="#!">
-                            <i class="fab fa-instagram"></i>
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-paypal"></i>
                         </a>
                     </li>
                 </ul>
@@ -66,41 +58,20 @@
 
                 <div class="row">
                     <div class="col-sm-4 col-lg-6">
-                        <p id="messageId">
-                            <label for="id">Id de l'album :</label>
-                            <input type="number" required id="id" value="0" min="0"
-                                title="Saisissez un numéro et validez">
-                        </p>
-                        <p>
-                            <label for="serie">Série :</label>
-                            <input type="text" id="serie" readonly>
-
-                            <label for="numero">Album N° :</label>
-                            <input type="text" id="numero" readonly>
-
-                            <label for="titre">Titre :</label>
-                            <input type="text" id="titre" readonly>
-
-                            <label for="auteur">Auteur :</label>
-                            <input type="text" id="auteur" readonly>
-                        </p>
-                        <p>
-                            <label for="prix">Prix :</label>
-                            <input type="number" id="prix" readonly>
-                        </p>
+                        
 
                         <div class="card text-center" style="width: 18rem;">
-                            <img src="images/noComics.jpeg" id="album" class="card-img-top" alt="image BD">
+                            <img src="images/noComicsMini.jpeg" id="albumMini" class="card-img-top" alt="image BD">
                             <div class="card-body">
-                                <h5 type="text" id="serie" readonly class="card-title"></h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <h5 type="text" id="idSerie" readonly class="card-title"></h5>
+                                <p class="card-text" id="titre"></p>
+                                <p class="card-text" id="prix"> </p>
+                                <p class="card-text" id="numero"> </p>
+                                <p class="card-text" id="idAuteur"> </p>
+                                <a href="#" class="btn btn-primary">Rechercher</a>
                             </div>
                         </div>
-                        <div is="toto">
-                            <img src="images/noComicsMini.jpeg" id="albumMini">
-                        </div>
+                       
                     </div>
                     <div class="col-sm-8 col-lg-6">
 
@@ -117,20 +88,7 @@
 
 
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-    <script src="data/albums.js"></script>
-    <script src="data/series.js"></script>
-    <script src="data/auteurs.js"></script>
-    <script src="js/modeleBD.js"></script>
+    
 </body>
 
 </html>

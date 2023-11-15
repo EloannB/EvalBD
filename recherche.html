@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <title>Les BD</title>
+</head>
+
+
+<body>
+
+    <div>
+
+        <nav id="navbar" class="navbar navbar-expand-lg navbar-light fixed-top mask-custom shadow-0">
+            <div class="container">
+                <a class="navbar-brand" href="#!"><span style="color: rgb(209, 137, 155);">SEARCH</span><span
+                        style="color: #fff;">BD</span></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+
+                <div class="d-flex align-items-center">
+                    <!-- Search Bar -->
+                    <form class="form-inline my-2 my-lg-0 d-none d-lg-flex">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search">
+                        <button id="btnSearch" class="btn my-2 my-sm-0" type="submit">Rechercher</button>
+                    </form>
+
+                    <!-- Dropdown -->
+                    <div class="dropdown ml-2 d-none d-lg-block">
+                        <button id="btnDrop" class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Trier
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Titre</a></li>
+                            <li><a class="dropdown-item" href="#">Serie</a></li>
+                            <li><a class="dropdown-item" href="#">Auteur</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+    </div>
+    </nav>
+    </div>
+
+    <div>
+        <main>
+
+            <div id="card" class="card text-center" style="width: 18rem;">
+                <img src="" class="card-img-top" alt="image BD">
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text"></p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"></li>
+                    <li class="list-group-item"></li>
+                    <li class="list-group-item"></li>
+                </ul>
+                <div class="card-body">
+                    <a href="#" class="card-link"></a>
+                    <a href="#" class="card-link"></a>
+                </div>
+            </div>
+
+
+
+        </main>
+
+
+    </div>
+
+
+    <footer>
+        <div class="footer">
+            <div class="row">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+                <a href="#"><i class="fa fa-youtube"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+            </div>
+
+            <div  class="row">
+                <ul>
+                    <li><a href="#">Nous Contacter</a></li>
+                    <li><a href="#">Termes & Conditions</a></li>
+                </ul>
+            </div>
+
+            <div class="row justify-content-center">
+                Copyright © 2023 - Tous Droit Réservés || Designed By: EloannB
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+<script src="data/albums.js"></script>
+<script src="data/series.js"></script>
+<script src="data/auteurs.js"></script>
+<script src="modifBD.js"></script>
