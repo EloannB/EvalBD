@@ -9,12 +9,12 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="modifBD.js"></script>
     <title>Les BD</title>
 </head>
-
 
 <body>
 
@@ -30,7 +30,6 @@
                     <i class="fas fa-bars"></i>
                 </button>
 
-
                 <div class="d-flex align-items-center">
                     <!-- Search Bar -->
                     <form class="form-inline my-2 my-lg-0 d-none d-lg-flex">
@@ -45,55 +44,40 @@
                             Trier
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#" id="filterByTitre">Titre</a></li>
-                            <li><a class="dropdown-item" href="#" id="filterBySerie">Serie</a></li>
-                            <li><a class="dropdown-item" href="#" id="filterByAuteur">Auteur</a></li>
+                            <li><a class="dropdown-item" href="#" data-filter="titre">Titre</a></li>
+                            <li><a class="dropdown-item" href="#" data-filter="serie">Serie</a></li>
+                            <li><a class="dropdown-item" href="#" data-filter="auteur">Auteur</a></li>
                         </ul>
-
                     </div>
                 </div>
-
             </div>
-
         </nav>
     </div>
 
-    <div class="container">
-
-
-
-        <!-- Résultats de la recherche -->
-        <div id="results" class="row"></div>
-        <br>
-        <br>
-    
-        <h1>Liste des BD</h1>
-    
+    <div>
         <main>
-        <div class="row">
-          <div class="col-sm-4 col-lg-6">
-            <p id="messageId">
-              <label for="id">Id de l'album :</label>
-              <input type="number" required id="id" value="0" min="0" title="Saisissez un numéro et validez">
-            </p>
-    
-            <!-- Zone de résultats pour les cartes -->
-            <div class="row" id="results">
-            <!-- Les cartes d'albums seront affichées ici -->
+            <div id="card-container" class="row">
+                <!-- Les cartes seront ajoutées ici dynamiquement -->
             </div>
-    
-            <!-- Conteneur pour le tableau d'albums -->
-            <div id="albumTable">
-            <!-- Le tableau d'albums sera affiché ici -->
+
+            <div id="table-container" class="row">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Series</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Comics table rows will be dynamically added here -->
+                    </tbody>
+                </table>
             </div>
-            </div>
-        </div>
-          </main>
-    
-        </div>
-
-
-
+        </main>
+    </div>
 
     <footer>
         <div class="footer">
@@ -117,13 +101,13 @@
         </div>
     </footer>
 
-
 </body>
 
+</html>
 
 
-
-
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
     integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
     crossorigin="anonymous"></script>
