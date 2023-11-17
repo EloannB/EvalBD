@@ -1,35 +1,96 @@
+if (typeof jQuery !== 'undefined') {
+	// Votre code jQuery ici
+	$(document).ready(function () {
+		renderMobileView();
+		renderDesktopView();
+
+		$('.dropdown-item').on('click', function (event) {
+			const filterType = $(this).data('filter');
+			handleFilterSelection(filterType);
+			updateCartContent();
+		});
+
+		$('.addToCart').on('click', function () {
+			const albumId = $(this).data('album-id');
+			addToCart(albumId);
+		});
+
+		$('.removeFromCart').on('click', function () {
+			const albumId = $(this).data('album-id');
+			removeFromCart(albumId);
+		});
+	});
+} else {
+	console.error("jQuery n'est pas défini. Assurez-vous d'inclure jQuery avant ce script.");
+}
+
+const shoppingCart = [];
+
+function addToCart(albumId) {
+	const album = albums.get(albumId);
+
+	if (album) {
+		shoppingCart.push({
+			id: albumId,
+			prix: album.prix
+		});
+
+		updateCartContent();
+	} else {
+		console.error(`Album with ID ${albumId} not found.`);
+	}
+}
+
+function removeFromCart(albumId) {
+	// Implement logic to remove the album from the shopping cart
+	// ...
+
+	updateCartContent();
+}
+
 function filterByTitle(title) {
-    const filteredAlbums = Array.from(albums.values()).filter(album => {
-        // Check if album.titre is defined and not null before calling toLowerCase()
-        return album.titre && album.titre.toLowerCase().includes(title.toLowerCase());
-    });
-    renderMobileView(filteredAlbums);
-    renderDesktopView(filteredAlbums);
+	const filteredAlbums = Array.from(albums.values()).filter(album => {
+		return album.titre && album.titre.toLowerCase().includes(title.toLowerCase());
+	});
+	renderMobileView(filteredAlbums);
+	renderDesktopView(filteredAlbums);
 }
 
 function filterBySeries(series) {
-    const filteredAlbums = Array.from(albums.values()).filter(album => {
-        // Check if album.idSerie is defined and not null before calling toLowerCase()
-        return album.idSerie && album.idSerie.toLowerCase() === series.toLowerCase();
-    });
-    renderMobileView(filteredAlbums);
-    renderDesktopView(filteredAlbums);
+	const filteredAlbums = Array.from(albums.values()).filter(album => {
+		return album.idSerie && album.idSerie.toLowerCase() === series.toLowerCase();
+	});
+	renderMobileView(filteredAlbums);
+	renderDesktopView(filteredAlbums);
 }
 
 function filterByAuthor(author) {
-    const filteredAlbums = Array.from(albums.values()).filter(album => {
-        // Check if album.idAuteur is defined and not null before calling toLowerCase()
-        return album.idAuteur && album.idAuteur.toLowerCase() === author.toLowerCase();
-    });
-    renderMobileView(filteredAlbums);
-    renderDesktopView(filteredAlbums);
+	const filteredAlbums = Array.from(albums.values()).filter(album => {
+		return album.idAuteur && album.idAuteur.toLowerCase() === author.toLowerCase();
+	});
+	renderMobileView(filteredAlbums);
+	renderDesktopView(filteredAlbums);
 }
-
-
 
 $(document).ready(function () {
 	renderMobileView();
 	renderDesktopView();
+
+	$('.dropdown-item').on('click', function (event) {
+		const filterType = $(this).data('filter');
+		handleFilterSelection(filterType);
+		updateCartContent();
+	});
+
+	$('.addToCart').on('click', function () {
+		const albumId = $(this).data('album-id');
+		addToCart(albumId);
+	});
+
+	$('.removeFromCart').on('click', function () {
+		const albumId = $(this).data('album-id');
+		removeFromCart(albumId);
+	});
 });
 
 function renderMobileView(filteredAlbums) {
@@ -44,14 +105,17 @@ function renderMobileView(filteredAlbums) {
 		const card = `
             <div class="card">
                 <h5 class="card-title">${album.titre}</h5>
-                <p class="card-text">Number: ${album.numero}</p>
-                <p class="card-text">Series: ${serie.nom}</p>
-                <p class="card-text">Author: ${auteur.nom}</p>
-                <p class="card-text">Price: ${album.prix}</p>
+                <p class="card-text">Serie: ${serie.nom}</p>
+                <p class="card-text">Auteur: ${auteur.nom}</p>
+                <p class="card-text">Prix: ${album.prix}€</p>
+                <button class="addToCart btn btn-success" data-album-id="${album.id}">Ajouter au panier</button>
+                <button class="removeFromCart btn btn-danger" data-album-id="${album.id}">Retirer du panier</button>
             </div>
         `;
 		cardContainer.append(card);
 	});
+
+	// ... (The rest of your code)
 }
 
 function renderDesktopView(filteredAlbums) {
@@ -70,39 +134,27 @@ function renderDesktopView(filteredAlbums) {
                 <td>${serie.nom}</td>
                 <td>${auteur.nom}</td>
                 <td>${album.prix}</td>
+                <td>
+                    <button class="addToCart btn btn-success" data-album-id="${album.id}">Ajouter au panier</button>
+                    <button class="removeFromCart btn btn-danger" data-album-id="${album.id}">Retirer du panier</button>
+                </td>
             </tr>
         `;
 		tableContainer.append(tableRow);
 	});
 }
 
-$(document).ready(function () {
-    // Load initial data
-    renderMobileView();
-    renderDesktopView();
-
-    // Event listener for the dropdown items
-    $('.dropdown-item').on('click', function (event) {
-        const filterType = $(this).data('filter');
-        handleFilterSelection(filterType);
-    });
-});
-
-// Function to handle filter selection
 function handleFilterSelection(filterType) {
 	switch (filterType) {
 		case 'titre':
-			// Assuming you have an input with id 'filterTitre'
 			const titreFilter = $('#filterTitre').val();
 			filterByTitle(titreFilter);
 			break;
 		case 'serie':
-			// Assuming you have an input with id 'filterSerie'
 			const serieFilter = $('#filterSerie').val();
 			filterBySeries(serieFilter);
 			break;
 		case 'auteur':
-			// Assuming you have an input with id 'filterAuteur'
 			const auteurFilter = $('#filterAuteur').val();
 			filterByAuthor(auteurFilter);
 			break;
@@ -111,3 +163,20 @@ function handleFilterSelection(filterType) {
 	}
 }
 
+function updateCartContent() {
+	const cartSummary = $('#cartSummary');
+	cartSummary.empty();
+
+	shoppingCart.forEach(album => {
+		const albumTitle = albums.get(album.id).titre;
+		const cartItem = `<p>${albumTitle} - ${album.prix}</p>`;
+		cartSummary.append(cartItem);
+	});
+
+	const totalAmount = shoppingCart.reduce((total, album) => total + parseFloat(album.prix), 0);
+	const totalElement = `<p>Total: ${totalAmount.toFixed(2)}</p>`;
+	cartSummary.append(totalElement);
+
+	// Update the offcanvas body
+	$('.offcanvas-body').html(cartSummary.html());
+}
