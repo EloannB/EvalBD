@@ -44,6 +44,7 @@ body {
 #btnSearch {
 	background-color: rgb(209, 137, 155);
 	color: #fff;
+	margin: 2px;
 }
 
 #btnSearch:hover {
@@ -57,6 +58,17 @@ body {
 }
 
 #btnDrop:hover {
+	background-color: rgb(168, 92, 111);
+	color: #fff;
+}
+
+#btnShop {
+	background-color: rgb(209, 137, 155);
+	color: #fff;
+	margin: 2px;
+}
+
+#btnShop:hover {
 	background-color: rgb(168, 92, 111);
 	color: #fff;
 }
@@ -133,6 +145,7 @@ body {
 	width: 650px;
 	position: relative;
 	overflow: hidden;
+	margin: 0 auto;
 
 	&::after {
 		content: '';

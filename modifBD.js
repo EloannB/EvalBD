@@ -101,13 +101,14 @@ function renderMobileView(filteredAlbums) {
 		const auteur = auteurs.get(album.idAuteur);
 		const serie = series.get(album.idSerie);
 		const card = `
-            <div class="card">
+            <div class="card">			
+			<img src="albumsMini/${series.get(album.idSerie).nom}-${album.numero}-${album.titre}.jpg" class="card-img-top" alt="Image album">
                 <h5 class="card-title">${album.titre}</h5>
                 <p class="card-text">Serie: ${serie.nom}</p>
                 <p class="card-text">Auteur: ${auteur.nom}</p>
                 <p class="card-text">Prix: ${album.prix}€</p>
-                <button class="addToCart btn btn-success" data-album-id="${album.id}">Ajouter au panier</button>
-                <button class="removeFromCart btn btn-danger" data-album-id="${album.id}">Retirer du panier</button>
+                <button class="addToCart btn btn-secondary m-1" data-album-id="${album.id}">Ajouter au panier</button>
+                <button class="removeFromCart btn btn-secondary m-1" data-album-id="${album.id}">Retirer du panier</button>
             </div>
         `;
 		cardContainer.append(card);
@@ -175,3 +176,20 @@ function updateCartContent() {
 
 	$('.offcanvas-body').html(cartSummary.html());
 }
+
+function displayDefaultImages() {
+	let defaultMiniature = '';
+	let defaultImage = '';
+
+	// Vérifiez la vue actuelle pour définir les images par défaut
+	if (currentView === 'table') {
+		defaultMiniature = 'defaultMiniTablet.jpeg'; // Remplacez par le chemin de l'image par défaut pour le tableau en version desktop
+		defaultImage = 'defaultTablet.jpeg'; // Remplacez par le chemin de l'image par défaut pour le tableau en version desktop
+	} else {
+		defaultMiniature = 'defaultMiniMobile.jpeg'; // Remplacez par le chemin de l'image par défaut pour les cartes en version mobile
+		defaultImage = 'defaultMobile.jpeg'; // Remplacez par le chemin de l'image par défaut pour les cartes en version mobile
+	}
+
+	displayAlbumImages(defaultMiniature, defaultImage);
+}
+
