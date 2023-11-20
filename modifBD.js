@@ -1,5 +1,5 @@
 if (typeof jQuery !== 'undefined') {
-	// Votre code jQuery ici
+
 	$(document).ready(function () {
 		renderMobileView();
 		renderDesktopView();
@@ -42,8 +42,6 @@ function addToCart(albumId) {
 }
 
 function removeFromCart(albumId) {
-	// Implement logic to remove the album from the shopping cart
-	// ...
 
 	updateCartContent();
 }
@@ -115,7 +113,6 @@ function renderMobileView(filteredAlbums) {
 		cardContainer.append(card);
 	});
 
-	// ... (The rest of your code)
 }
 
 function renderDesktopView(filteredAlbums) {
@@ -159,7 +156,6 @@ function handleFilterSelection(filterType) {
 			filterByAuthor(auteurFilter);
 			break;
 		default:
-		// Handle other filter types if needed
 	}
 }
 
@@ -177,6 +173,5 @@ function updateCartContent() {
 	const totalElement = `<p>Total: ${totalAmount.toFixed(2)}</p>`;
 	cartSummary.append(totalElement);
 
-	// Update the offcanvas body
 	$('.offcanvas-body').html(cartSummary.html());
 }
